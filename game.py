@@ -31,7 +31,7 @@ while game == 't':
             if nums not in guessed:
                 guessed.append(nums)
         except ValueError:
-            print("To  nie liczba ...")
+            print("To  nie liczba ...") # !!! to naley przenieść jakoś do pętli while ...
             ### 
             # jeśli pojawi się błąd napisz procedurę powrotu 
             # do tej samej komórki by wprowadzi liczbę 
