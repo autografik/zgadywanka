@@ -19,33 +19,31 @@ nums = 0
 #   main loop of application
 while game == 't':
     print("OK, a więc losuj liczbę: ")
+    
+    #   apps draws rundom numbers
+    for i in range(7):          # !!!! ale o co chodzi? czemu funkcja generuje o jedną liczbę mniej ni wskazuje na to parametr
+        num = random.randint(1, 50)
+        if num not in rundomed:
+            rundomed.append(num)
+    
     #   get the numbers guessed by gamer
-    for i in range(6):
+    for j in range(6):
         try:    #   if the gamer hit wrong key, applications inform his  
-            nums = int(input(" \tnr " + str(i + 1) + ": "))
-            while nums is not int:
-                #print("Podaj liczbę: ", i)
-                nums = int(input(" \tnr " + str(i - 1) + ": "))
-                print("Nr liczby: " + str(i) + "wartość: ", nums)
-                break
+            nums = int(input(" \tnr " + str(j + 1) + ": "))
             if nums not in guessed:
                 guessed.append(nums)
         except ValueError:
             print("To  nie liczba ...") # !!! to naley przenieść jakoś do pętli while ...
-            ### 
-            # jeśli pojawi się błąd napisz procedurę powrotu 
-            # do tej samej komórki by wprowadzi liczbę 
-            # Przewidywane błędy to:
-            #   1. znak zamiast liczby
-            #   2. enter zamiast liczby
-            #   3. inny klawisz np.esc, tab, ... zamiast liczby
-            #   4. chęć przzerwania programu
-            # ###    
-    #   apps draws rundom numbers
-    for j in range(6):
-        num = random.randint(1, 50)
-        if num not in rundomed:
-            rundomed.append(num)
+        ### 
+        # jeśli pojawi się błąd napisz procedurę powrotu 
+        # do tej samej komórki by wprowadzi liczbę 
+        # Przewidywane błędy to:
+        #   1. znak zamiast liczby
+        #   2. enter zamiast liczby
+        #   3. inny klawisz np.esc, tab, ... zamiast liczby
+        #   4. chęć przzerwania programu
+        # ###    
+
     #   declaration variable and marg two lists of numbers
     trafione = 0
     for m in guessed:
